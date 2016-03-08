@@ -1,0 +1,3 @@
+[submodule "generators/app/ng2-boilerplate"]
+	path = generators/app/ng2-boilerplate
+	url = https://github.com/eduncan26/ng2-boilerplate
