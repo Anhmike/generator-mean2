@@ -24,5 +24,8 @@
     "Node",
     "TypeScript",
     "yeoman-generator"
+  ],
+  "files": [
+    "generators/app"
   ]
 }
