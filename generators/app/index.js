@@ -47,16 +47,25 @@ module.exports = yeoman.generators.Base.extend({
       this.props = props;
       // To access props later use this.props.someOption;
 
+      this.writeLocation = this.destinationRoot() + '/' + this.props.name;
+
       done();
     }.bind(this));
   },
 
+  paths: function () {
+    this.sourceRoot(__dirname + '/ng2-boilerplate');
+    this.destinationRoot(this.writeLocation);
+  },
+
   writing: {
     createApplication: function () {
-      // TODO: Pull application from ng2-boilerplate submodule and write to targetDir
+      // Write app source to destination
+      this.directory(this.sourceRoot(), this.destinationRoot());
     },
     setPackageProperties: function () {
-      // TODO: Extend package.json with this.props
+      // Extend package.json with the properties from prompts
+      this.fs.extendJSON(this.writeLocation + '/package.json', this.props);
     }
   },
 
